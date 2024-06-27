@@ -1,0 +1,22 @@
+#include <stdio.h>
+#define MAX 16
+
+union{
+  struct{
+    unsigned int mantisa:23;
+    unsigned int exponente:8;
+    unsigned int signo:1;
+  }byte;
+  float num;
+}flotante;
+
+int main(void) {
+  float numero; 
+  printf("Seleccione un número: \n");
+  scanf("%f", &numero);
+
+  flotante.num = numero;
+  printf("%x|", flotante.byte.mantisa);
+  printf("%x|", flotante.byte.exponente);
+  printf("%x", flotante.byte.signo);
+}
