@@ -1,0 +1,19 @@
+#include <stdio.h>
+#define MAX 4
+
+int main(void) {
+  float numero;
+  printf("Seleccione un número: \n");
+  scanf("%f", &numero);
+  
+  union flotante{
+    float number; 
+    unsigned char espacio[MAX];
+  }flotante;
+  flotante.number = numero;
+  
+  for(int i=0; i<MAX; i++){
+    printf(" %x -", flotante.espacio[i]);
+    //print en exa de cada byte del flotante
+  }
+}
